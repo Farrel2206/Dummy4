@@ -35,19 +35,16 @@ func buatAkunBaru(db *[100]Pengguna) bool {
 	fmt.Print("Masukkan password: ")
 	fmt.Scan(&nPassword)
 
-	// Validasi email unik
 	for i := 0; i < len(db); i++ {
 		if db[i].email == nEmail && db[i].idPengguna != 0 {
 			fmt.Println("\n❌ Email sudah digunakan. Silakan gunakan email lain.")
 			return false
 		}
-		// Cari ID terbesar untuk menentukan ID baru
 		if db[i].idPengguna >= idBaru {
 			idBaru = db[i].idPengguna + 1
 		}
 	}
 
-	// Cari indeks kosong untuk pengguna baru
 	indeksKosong := -1
 	for i := 0; i < len(db); i++ {
 		if db[i].idPengguna == 0 {
@@ -61,7 +58,6 @@ func buatAkunBaru(db *[100]Pengguna) bool {
 		return false
 	}
 
-	// Simpan pengguna baru
 	db[indeksKosong] = Pengguna{
 		idPengguna: idBaru,
 		nama:       nNama,
@@ -105,7 +101,6 @@ func tampilkanProfil(user *Pengguna, db *[100]Pinjaman) {
 	fmt.Printf("Email       : %s\n", user.email)
 	fmt.Println("=======================")
 
-	// Menampilkan data pinjaman
 	fmt.Println("\n===== DATA PINJAMAN =====")
 
 	totalPinjaman := hitungTotalPinjaman(db, user.idPengguna)
