@@ -32,7 +32,6 @@ func ajukanPinjaman(userAktif *Pengguna, db *[100]Pinjaman) {
 	fmt.Print("Pilih jumlah angsuran: ")
 	fmt.Scan(&nAngsuran)
 
-	// Validasi tenor dan angsuran
 	if !validasiTenorAngsuran(nNominal, nTenor, nAngsuran) {
 		fmt.Println("❌ Tenor atau jumlah angsuran tidak valid untuk nominal pinjaman ini.")
 		return
@@ -46,7 +45,6 @@ func ajukanPinjaman(userAktif *Pengguna, db *[100]Pinjaman) {
 		return
 	}
 
-	// Simpan pinjaman baru
 	dbDataPeminjam[indeksTersedia] = Pinjaman{
 		idPeminjam:     userAktif.idPengguna,
 		jumlahPinjaman: nNominal,
@@ -75,13 +73,13 @@ func ajukanPinjaman(userAktif *Pengguna, db *[100]Pinjaman) {
 func hitungBunga(nominal int) float64 {
 	switch {
 	case nominal < 10000000:
-		return 0.05 // 5%
+		return 0.05 
 	case nominal <= 50000000:
-		return 0.08 // 8%
+		return 0.08 
 	case nominal <= 100000000:
-		return 0.15 // 15%
+		return 0.15 
 	default:
-		return 0.18 // 18%
+		return 0.18 
 	}
 }
 
