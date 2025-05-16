@@ -60,7 +60,6 @@ func tampilkanSemuaPinjaman(db *[100]Pinjaman) {
 	}
 }
 
-// Menambahkan fungsi pengurutan tambahan berdasarkan bunga
 func insertionSortByBunga(db *[100]Pinjaman) {
 	for i := 1; i < len(db); i++ {
 		key := db[i]
@@ -76,7 +75,6 @@ func insertionSortByBunga(db *[100]Pinjaman) {
 	}
 }
 
-// Menambahkan fungsi pengurutan berdasarkan status lunas
 func insertionSortByStatus(db *[100]Pinjaman) {
 	for i := 1; i < len(db); i++ {
 		key := db[i]
@@ -84,7 +82,6 @@ func insertionSortByStatus(db *[100]Pinjaman) {
 		if db[i].idPeminjam == 0 {
 			continue
 		}
-		// Urutkan berdasarkan status (yang belum lunas di depan)
 		for j >= 0 && (db[j].statusLunas && !key.statusLunas) {
 			db[j+1] = db[j]
 			j--
