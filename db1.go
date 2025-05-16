@@ -6,7 +6,7 @@ type Pinjaman struct {
 	tenor          int
 	bunga          float64
 	jumlahAngsuran int
-	angsuranBayar  int // Jumlah angsuran yang sudah dibayar
+	angsuranBayar  int 
 	statusLunas    bool
 }
 
