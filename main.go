@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func tampilkanMenu() {
 	fmt.Println("\n==== MENU PINJAMAN ONLINE ====")
@@ -28,7 +26,6 @@ func main() {
 
 		switch pilihan {
 		case 1:
-			// Login
 			for {
 				userAktif = masuk(&dbPengguna)
 				statusMasuk = userAktif != nil
@@ -50,7 +47,6 @@ func main() {
 			}
 
 		case 2:
-			// Buat Akun Baru
 			buatAkunBaru(&dbPengguna)
 
 		case 0:
