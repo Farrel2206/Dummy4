@@ -1,7 +1,6 @@
 package main
 
 func seed() {
-	// Isi data pengguna
 	dbPengguna[0] = Pengguna{1, "Agha", "agha@example.com", "password123"}
 	dbPengguna[1] = Pengguna{2, "Elfan", "elfangamtenk@example.com", "elfan123"}
 	dbPengguna[2] = Pengguna{3, "Citra", "citra@example.com", "citra456"}
@@ -12,7 +11,6 @@ func seed() {
 	dbPengguna[7] = Pengguna{8, "Admin", "admin@trapinjaman.com", "admin123"}
 	dbPengguna[8] = Pengguna{9, "Demo", "demo@trapinjaman.com", "demo123"}
 
-	// Isi data pinjaman dengan struktur yang diperbarui
 	dbDataPeminjam[0] = Pinjaman{1, 1000000, 12, 0.05, 12, 0, false}
 	dbDataPeminjam[1] = Pinjaman{2, 2000000, 24, 0.08, 24, 24, true}
 	dbDataPeminjam[2] = Pinjaman{3, 1500000, 18, 0.06, 18, 6, false}
