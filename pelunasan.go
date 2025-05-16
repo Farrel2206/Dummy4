@@ -91,7 +91,6 @@ func bayarAngsuran(user *Pengguna, db *[100]Pinjaman) {
 	fmt.Println("\n==== BAYAR ANGSURAN ====")
 	fmt.Println("Pinjaman aktif Anda:")
 
-	// Menampilkan pinjaman aktif
 	count := 1
 	for i := 0; i < len(db); i++ {
 		if db[i].idPeminjam == user.idPengguna && !db[i].statusLunas && db[i].idPeminjam != 0 {
@@ -141,11 +140,9 @@ func bayarAngsuran(user *Pengguna, db *[100]Pinjaman) {
 		return
 	}
 
-	// Proses pembayaran
 	db[idx].angsuranBayar += jumlahBayar
 	totalBayar := perAngsuran * jumlahBayar
 
-	// Cek jika sudah lunas
 	if db[idx].angsuranBayar >= db[idx].jumlahAngsuran {
 		db[idx].statusLunas = true
 		fmt.Println("\n🎉 Selamat! Pinjaman telah LUNAS!")
@@ -164,7 +161,6 @@ func pelunasanLangsung(user *Pengguna, db *[100]Pinjaman) {
 	fmt.Println("\n==== PELUNASAN LANGSUNG ====")
 	fmt.Println("Pinjaman aktif Anda:")
 
-	// Menampilkan pinjaman aktif
 	count := 1
 	for i := 0; i < len(db); i++ {
 		if db[i].idPeminjam == user.idPengguna && !db[i].statusLunas && db[i].idPeminjam != 0 {
@@ -207,7 +203,6 @@ func pelunasanLangsung(user *Pengguna, db *[100]Pinjaman) {
 	fmt.Scan(&konfirmasi)
 
 	if konfirmasi == "y" || konfirmasi == "Y" {
-		// Proses pelunasan
 		db[idx].angsuranBayar = db[idx].jumlahAngsuran
 		db[idx].statusLunas = true
 
